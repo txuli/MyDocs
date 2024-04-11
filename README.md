@@ -1,41 +1,24 @@
-# Website
+# My Notes Collection
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+Welcome to My Notes Collection! This repository serves as a centralized hub for all my personal notes and documentation.
 
-### Installation
+## About
 
-```
-$ yarn
-```
+My Notes Collection aims to gather all my personal notes, covering various topics, subjects, and interests. Whether it's programming, technology, literature, or any other field, you'll find my insights and observations documented here.
 
-### Local Development
+## Features
 
-```
-$ yarn start
-```
+- **Personalized Notes**: These notes are curated specifically for my personal reference and learning.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+- **Organized Content**: The notes are organized into different categories and topics for easy navigation and reference.
 
-### Build
+- **Search Functionality**: Quickly find the information you need using the built-in search functionality.
 
-```
-$ yarn build
-```
+- **Contribution Guidelines**: While contributions are not currently open to the public, I welcome feedback and suggestions for improvement.
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## Contents
 
-### Deployment
+- **Programming**: Notes related to programming languages, frameworks, and software development.
+## Feedback
 
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+I welcome feedback on my notes collection. If you have any questions, suggestions, or ideas for improvement, please feel free make a ['Pull request']()
