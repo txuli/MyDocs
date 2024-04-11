@@ -1,4 +1,4 @@
-# My Notes Collection
+# My Notes Collection.
 
 Welcome to My Notes Collection! This repository serves as a centralized hub for all my personal notes and documentation.
 
