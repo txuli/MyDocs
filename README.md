@@ -21,4 +21,4 @@ My Notes Collection aims to gather all my personal notes, covering various topic
 - **Programming**: Notes related to programming languages, frameworks, and software development.
 ## Feedback
 
-I welcome feedback on my notes collection. If you have any questions, suggestions, or ideas for improvement, please feel free make a ['Pull request']()
+I welcome feedback on my notes collection. If you have any questions, suggestions, or ideas for improvement, please feel free make a Pull request
