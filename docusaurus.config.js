@@ -114,8 +114,8 @@ const config = {
             activeBaseRegex: `/MySql/`,
           },
           {
-            href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
+            href: 'https://github.com/txuli',
+            label: 'My GitHub',
             position: 'right',
           },
         ],
@@ -127,7 +127,7 @@ const config = {
           
           
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My docs, Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} .`,
       },
       prism: {
         theme: prismThemes.github,
