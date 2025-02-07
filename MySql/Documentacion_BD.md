@@ -1,13 +1,116 @@
 # BASES DE DATOS RETO 2 GRUPO 5
 
+## Universo del Discurso
+
+La Federación de Voleibol organiza competiciones que se desarrollan en múltiples temporadas. Cada temporada involucra equipos de voleibol que se enfrentan en partidos, supervisados por árbitros. Los partidos siguen las reglas oficiales del deporte y se juegan al mejor de cinco sets. El sistema debe gestionar los detalles de los equipos, jugadores, árbitros, partidos y sets, así como mantener un registro de los resultados y las clasificaciones.
+
+Cada **temporada** se refiere a un periodo de competición que puede tener lugar una o varias veces al año. Una temporada incluye múltiples partidos y su estructura puede variar (liguilla, eliminatorias, etc.). En esta parte del reto solo habrá una temporada, por lo que no hace falta reflejar en la base de datos. De cada temporada se desea almacenar la siguiente información Nombre, Cantidad Equipos, Cantidad Jornadas, Iniciado, Finalizado.
+
+Las **jornadas** guardarán los enfrentamientos semanales de los equipos inscritos en la Temporada de ida y vuelta y no se podrán repetir, y se crearán de manera automática y proporcional a la cantidad de equipos. De cada jornada se desea almacenar la siguiente información: Id_jornada, Jugado.
+
+Cada **equipo** es un grupo organizado de jugadores que participan en los partidos de la competición. Los equipos pueden representar a clubes, instituciones o ciudades. De cada equipo se desea almacenar la siguiente información: número Identificativo,Id Equipo, Nombre del equipo, Entrenador, Fecha de Fundación, Partidos Ganados, Partidos Perdidos, Puntaje Total Acumulado.
+
+Los **jugadores** son los miembros de los equipos. Cada jugador tiene una posición y un rol dentro del equipo y participa en los partidos según las reglas del voleibol. De cada jugador se desea almacenar la siguiente información: ID jugador, Nombre completo, Fecha de Nacimiento, Nro camiseta, Posición, Altura, Peso. Los jugadores pueden ser fichados y/o trasladados a un club siempre que no se haya empezado la temporada.
+
+Un **partido** de voleibol enfrenta a dos equipos y se compone de varios sets. El equipo que gane más sets se proclamará vencedor del partido. De cada partido se desea almacenar la siguiente información: ID Partido, Equipo local, Equipo visitante, Resultado Final, Estado del partido, Puntaje_EquiLocal, Puntaje_EquiVisitante.
+
+Cada **partido** contiene 5 sets. Un set se gana cuando un equipo alcanza 25 puntos con una ventaja de 2 puntos sobre el rival. Si el partido llega a un quinto set, este se juega a 15 puntos e igualmente sobre una ventaja de 2 puntos ante el rival.
+
+El ganador de un partido es el primer equipo que sume 3 sets ganados. El marcador final se registra como parte de **Puntos Totales** de la temporada e influye en la clasificación general de los equipos cuando existen 2 equipos en empate de **Partidos Ganados**. De haber nuevamente un empate en relación a **Puntos Totales**, se decidirá el desempate por el año de fundación de cada equipo.
+
+El sistema debe calcular y mantener una clasificación de los equipos basada en los resultados de los partidos de manera actualizada según avancen las Jornadas. Los equipos reciben puntos por cada partido ganado y se mantienen registros de sus estadísticas a lo largo de la temporada.
+
+**Cambios realizados en el Universo del Discurso:**
+
+En este 2do reto se consideró añadir una entidad Temporada porque ahora el sistema permite crear y gestionar múltiples temporadas considerando si está iniciado o finalizado. Asimismo, se detalla que los jugadores pueden ser fichados a otro equipo siempre que no se haya iniciado la temporada actual.
+
+
 ## DIAGRAMA ER
+
+Este diagrama tiene 5 entidades las cuales se conectan entre sí, a través de 4 Relaciones.
+
+7 Entidades:
+
+1. Equipos (id_ equipos)
+2. Partidos (id_ partido)
+3. Jugadores (DNI_ jugador)
+4. Jornadas (id_jornadas)
+5. Temporada (id_temporada)
+6. Arbitro (DNI_arbitro)
+
+4 Relaciones:
+
+1. Pertenecen
+2. Enfrentan
+3. Tiene (x2)
+4. Juegan
+5. Arbitra
+
 ![diagrama_er](https://photos.txuli.com/reto/entidadRelacion.png)
 
-## TABLAS 
+
+## TABLAS / MODELO RELACIONAL
+
+**Equipo** (id_equipo, Nombre_equipo, Entrenador, Fecha_Fundacion, PartidosGanados, PartidosPerdidos, PuntajeTotal)
+
+**Jornadas** (id_jornada, id_temporada(fk), jugado)
+
+**Partidos** (id_partido, id_EquipoLocal(fk), id_EquipoVisitante(fk), Jugado, SetsLocal, PuntajeLocal, SetsVisitante, PuntajeVisitante)
+
+**Jugadores** (DNI_jugador, NombreCompleto, fechaNac, numDorsal, posición, altura, peso, id_equipo (fk), id_Foto, Nacionalidad)
+
+**Temporada** (id_temporada, Nombre, Cantidad_Equipos, Cantidad_Jornadas, Iniciado, Finalizado)
+
+**Arbitro** (DNI_arbitro, NombreCompleto, Nacionalidad, Titulación)
+
+Arbitra (id_partido(fk), dni_arbitro(fk))
+
 ![tablas](https://photos.txuli.com/reto/tablas.png)
 
 ## BASE DE DATOS 
+
+### SCRIPT
+
 [Script db.sql](https://photos.txuli.com/reto/db-v2.sql)
+
+### **Relaciones y Cardinalidades**  
+
+#### **1. Temporada - Jornada**  
+   - **Relación:** Una temporada puede tener múltiples jornadas, pero cada jornada pertenece a una única temporada.  
+   - **Cardinalidad:**  
+     - (1,N) de **Temporada** a **Jornadas** → Una temporada tiene varias jornadas.  
+     - (1,1) de **Jornada** a **Temporada** → Una jornada pertenece a una única temporada.  
+
+#### **2. Jornada - Partidos**  
+   - **Relación:** Una jornada puede contener múltiples partidos, pero cada partido pertenece exactamente a una jornada.  
+   - **Cardinalidad:**  
+     - (0,N) de **Jornada** a **Partidos** → Una jornada puede tener varios partidos, o ninguno si aún no se han programado.  
+     - (1,1) de **Partido** a **Jornada** → Cada partido pertenece a una sola jornada.  
+
+#### **3. Partidos - Equipos**  
+   - **Relación:** Cada partido involucra exactamente a dos equipos, mientras que un equipo puede jugar múltiples partidos.  
+   - **Cardinalidad:**  
+     - (2,2) de **Partidos** a **Equipos** → Cada partido involucra exactamente dos equipos (local y visitante).  
+     - (0,N) de **Equipos** a **Partidos** → Un equipo puede participar en múltiples partidos, o incluso en ninguno si aún no ha jugado.  
+
+#### **4. Partido - Árbitro**  
+   - **Relación:** Un partido debe contar con al menos un árbitro y puede tener hasta dos, mientras que un árbitro puede arbitrar múltiples partidos.  
+   - **Cardinalidad:**  
+     - (1,2) de **Partido** a **Árbitro** → Un partido tiene al menos un árbitro y como máximo dos.  
+     - (0,N) de **Árbitro** a **Partido** → Un árbitro puede arbitrar múltiples partidos o aún no haber arbitrado.  
+
+#### **5. Equipo - Jugadores**  
+   - **Relación:** Cada equipo debe contar con exactamente 12 jugadores y cada jugador pertenece a un único equipo.  
+   - **Cardinalidad:**  
+     - (12,12) de **Equipo** a **Jugadores** → Un equipo debe tener exactamente 12 jugadores.  
+     - (1,1) de **Jugador** a **Equipo** → Cada jugador pertenece a un único equipo.  
+
+#### **6. Jugadores - Partidos**  
+   - **Relación:** Un jugador puede participar en múltiples partidos, mientras que un partido debe contar con entre 12 y 24 jugadores en total (6 por equipo).  
+   - **Cardinalidad:**  
+     - (0,N) de **Jugadores** a **Partidos** → Un jugador puede jugar múltiples partidos o aún no haber participado.  
+     - (12,24) de **Partidos** a **Jugadores** → En cada partido deben participar entre 12 y 24 jugadores (mínimo 6 por equipo y máximo 12).  
+
 
 ## CONSULTAS
 
