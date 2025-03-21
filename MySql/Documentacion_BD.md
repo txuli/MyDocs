@@ -4,9 +4,7 @@
 
 La Federación de Voleibol organiza competiciones que se desarrollan en múltiples temporadas. Cada temporada involucra equipos de voleibol que se enfrentan en partidos, supervisados por árbitros. Los partidos siguen las reglas oficiales del deporte y se juegan al mejor de cinco sets. El sistema debe gestionar los detalles de los equipos, jugadores, árbitros, partidos y sets, así como mantener un registro de los resultados y las clasificaciones.
 
-Cada **temporada** se refiere a un periodo de competición que puede tener lugar una o varias veces al año. Una temporada incluye múltiples partidos y su estructura puede variar (liguilla, eliminatorias, etc.). En esta parte del reto solo habrá una temporada, por lo que no hace falta reflejar en la base de datos. De cada temporada se desea almacenar la siguiente información Nombre, Cantidad Equipos, Cantidad Jornadas, Iniciado, Finalizado.
-
-Las **jornadas** guardarán los enfrentamientos semanales de los equipos inscritos en la Temporada de ida y vuelta y no se podrán repetir, y se crearán de manera automática y proporcional a la cantidad de equipos. De cada jornada se desea almacenar la siguiente información: Id_jornada, Jugado.
+Cada **temporada** se refiere a un periodo de competición que puede tener lugar una o varias veces al año. Una temporada incluye múltiples partidos y su estructura puede variar (liguilla, eliminatorias, etc.). De cada temporada se desea almacenar la siguiente información Nombre, Cantidad Equipos, Cantidad Jornadas, Iniciado, Finalizado.
 
 Cada **equipo** es un grupo organizado de jugadores que participan en los partidos de la competición. Los equipos pueden representar a clubes, instituciones o ciudades. De cada equipo se desea almacenar la siguiente información: número Identificativo,Id Equipo, Nombre del equipo, Entrenador, Fecha de Fundación, Partidos Ganados, Partidos Perdidos, Puntaje Total Acumulado.
 
@@ -14,7 +12,10 @@ Los **jugadores** son los miembros de los equipos. Cada jugador tiene una posici
 
 Un **partido** de voleibol enfrenta a dos equipos y se compone de varios sets. El equipo que gane más sets se proclamará vencedor del partido. De cada partido se desea almacenar la siguiente información: ID Partido, Equipo local, Equipo visitante, Resultado Final, Estado del partido, Puntaje_EquiLocal, Puntaje_EquiVisitante.
 
-Cada **partido** contiene 5 sets. Un set se gana cuando un equipo alcanza 25 puntos con una ventaja de 2 puntos sobre el rival. Si el partido llega a un quinto set, este se juega a 15 puntos e igualmente sobre una ventaja de 2 puntos ante el rival.
+Cada **partido** contiene 5 sets. Un set se gana cuando un equipo alcanza 25 puntos con una ventaja de 2 puntos sobre el rival. Si el partido llega a un quinto set, este se juega a 15 puntos e igualmente sobre una ventaja de 2 puntos ante el rival, cada partido tiene un identificador el cual nos ayuda a saber que enfrentamentos son los correspondientes por cada jornada, previamente teniamos pensado hacer una tabla de jornadas, pero como solo iba a tener el ID y el  nombre decidimos que no era necesario tener esa tabla.
+::: note
+Este aspecto se podria adaptar por si necesitas guardar mas informacion
+:::
 
 El ganador de un partido es el primer equipo que sume 3 sets ganados. El marcador final se registra como parte de **Puntos Totales** de la temporada e influye en la clasificación general de los equipos cuando existen 2 equipos en empate de **Partidos Ganados**. De haber nuevamente un empate en relación a **Puntos Totales**, se decidirá el desempate por el año de fundación de cada equipo.
 
@@ -29,14 +30,12 @@ En este 2do reto se consideró añadir una entidad Temporada porque ahora el sis
 
 Este diagrama tiene 5 entidades las cuales se conectan entre sí, a través de 4 Relaciones.
 
-7 Entidades:
+4 Entidades:
 
 1. Equipos (id_ equipos)
 2. Partidos (id_ partido)
 3. Jugadores (DNI_ jugador)
-4. Jornadas (id_jornadas)
-5. Temporada (id_temporada)
-6. Arbitro (DNI_arbitro)
+4. Temporada (id_temporada)
 
 4 Relaciones:
 
@@ -61,9 +60,6 @@ Este diagrama tiene 5 entidades las cuales se conectan entre sí, a través de 4
 
 **Temporada** (id_temporada, Nombre, Cantidad_Equipos, Cantidad_Jornadas, Iniciado, Finalizado)
 
-**Arbitro** (DNI_arbitro, NombreCompleto, Nacionalidad, Titulación)
-
-Arbitra (id_partido(fk), dni_arbitro(fk))
 
 ![tablas](https://photos.txuli.com/reto/tablas.png)
 
