@@ -74,7 +74,7 @@ const config = {
         docs: {
           routeBasePath: '/',
           sidebarPath: './sidebars.js',
-          remarkPlugins: [require('remark-admonitions')]
+         
           // Please change this to your repo.
 
         },
