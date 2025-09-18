@@ -86,6 +86,7 @@ const config = {
         },
         theme: {
           customCss: './src/css/custom.css',
+          
         },
       }),
     ],
@@ -135,7 +136,7 @@ const config = {
             href: 'https://github.com/txuli',
             label: 'My GitHub',
             position: 'right',
-          },
+          }
         ],
       },
       footer: {
@@ -150,6 +151,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['php'],
       },
     }),
 };
