@@ -54,6 +54,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'php',
+        path: 'php',
+        routeBasePath: 'php',
+        sidebarPath: require.resolve('./sidebarsPhp.js'),
+        // ... other options
+      },
+    ],
   ],
   
   presets: [
@@ -113,6 +123,13 @@ const config = {
             position: 'left',
             label: 'MySql',
             activeBaseRegex: `/MySql/`,
+          },
+          {
+
+            to: '/php/init', // To highlight the navbar item, you must link to a document, not a top-level directory
+            position: 'left',
+            label: 'Php',
+            activeBaseRegex: `/php/`,
           },
           {
             href: 'https://github.com/txuli',
