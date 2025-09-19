@@ -1,3 +1,9 @@
+---
+sidebar_position: 2
+title: js sintaxis basica
+---
+
+
 # sintaxis basica
 Sintaxis básica de *JavaScript*.
 
