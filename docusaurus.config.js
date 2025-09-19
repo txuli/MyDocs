@@ -146,8 +146,8 @@ const config = {
 
             to: '/JS/introjs', // To highlight the navbar item, you must link to a document, not a top-level directory
             position: 'left',
-            label: 'js',
-            activeBaseRegex: `/js/`,
+            label: 'JS',
+            activeBaseRegex: `/JS/`,
           },
           {
             href: 'https://github.com/txuli',
