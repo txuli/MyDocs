@@ -1,4 +1,4 @@
-# JavaScript 2dw3 (2)
+# manipulacion del html
 Aprende a mipular un HTML con *JavaScript*.
 
 **Índice**

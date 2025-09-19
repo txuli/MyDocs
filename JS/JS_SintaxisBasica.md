@@ -1,4 +1,4 @@
-# JavaScript 2dw3 (1)
+# sintaxis basica
 Sintaxis básica de *JavaScript*.
 
 **Índice**   

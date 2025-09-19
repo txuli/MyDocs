@@ -142,6 +142,13 @@ const config = {
             label: 'Php',
             activeBaseRegex: `/php/`,
           },
+           {
+
+            to: '/JS/introjs', // To highlight the navbar item, you must link to a document, not a top-level directory
+            position: 'left',
+            label: 'js',
+            activeBaseRegex: `/js/`,
+          },
           {
             href: 'https://github.com/txuli',
             label: 'My GitHub',
