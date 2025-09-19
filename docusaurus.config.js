@@ -64,6 +64,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'JS',
+        path: 'JS',
+        routeBasePath: 'JS',
+        sidebarPath: require.resolve('./sidebarsjs.js'),
+        // ... other options
+      },
+    ],
   ],
   
   presets: [
