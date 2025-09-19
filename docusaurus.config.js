@@ -137,6 +137,13 @@ const config = {
           },
           {
 
+            to: '/JS/introjs', // To highlight the navbar item, you must link to a document, not a top-level directory
+            position: 'left',
+            label: 'JS',
+            activeBaseRegex: `/js/`,
+          },
+          {
+
             to: '/php/init', // To highlight the navbar item, you must link to a document, not a top-level directory
             position: 'left',
             label: 'Php',
