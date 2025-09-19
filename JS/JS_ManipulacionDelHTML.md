@@ -137,7 +137,7 @@ podemos ocultar elementos del HTML haciendo referencia a su ID.
 document.getElementById("demo").style.display = "none";
 ```
 ## Botones (no es muy recomendado en HTML5) 
-Para que un boton tenga funcionalidad hay que añadirle un action listener. Esto se puede hacer de distintas maneras. </br>Este apartado muestra como hacer un action listener _en linea_, con la opcion "onclick". Se recomienda solo para acciones sencillas, para acciones complejas se recomienda declarar actionListeners con su correspondiente event handler.
+Para que un boton tenga funcionalidad hay que añadirle un action listener. Esto se puede hacer de distintas maneras. <br />Este apartado muestra como hacer un action listener _en linea_, con la opcion "onclick". Se recomienda solo para acciones sencillas, para acciones complejas se recomienda declarar actionListeners con su correspondiente event handler.
 
 Vamos a mostrar una serie de ejemplos en el que el boton 'Enviar' mostarará en la terminal el mensaje "Enviado!"
 

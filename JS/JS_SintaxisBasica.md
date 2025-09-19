@@ -9,8 +9,13 @@ Sintaxis básica de *JavaScript*.
 1. [Funciones](#funciones)
 
 ## Variables ( var | let | const )<a name="id1"></a>
-var -> variable de ambito global </br>
-let -> variable de ambito local </br>
+var -> variable de ambito global
+
+let -> variable de ambito local
+
+const -> constante
+
+
 const -> constante
 ``` js
 var a = 1;
@@ -104,8 +109,8 @@ for (let clave in persona) {
 ## Funciones
 
 #### setInterval
-Nos permite ejecutar una funcion cada x milisegundos.<br>
-_param1_ y _param2_ son parametros adicioneles para enviar a la función (OPCIONALES).<br>
+Nos permite ejecutar una funcion cada x milisegundos.<br />
+_param1_ y _param2_ son parametros adicioneles para enviar a la función (OPCIONALES).<br />
 Podemos obtener el id generado por la funcion para detener la misma utilizando clearInterval().
 
 ```js
